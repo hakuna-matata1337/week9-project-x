@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-size: 18px;
+  background-color: hsl(220, 13%, 18%);
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  all: unset;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+main.main-welcome {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+main.main-userarea {
+  display: grid;
+  grid-template-areas:
+    'header         header'
+    'user-nav       user-content'
+    'user-footer    user-footer';
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+header.header {
+  padding: 20px;
+  border-bottom: 3px solid #787db1;
+  font-size: 26px;
+  background-color: #3c4560;
+}
+
+nav.nav-user {
+  grid-area: user-nav;
+  background-color: #3c4560;
+  border-right: 3px solid #787db1;
+
+  a {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+
+    &:hover {
+      background: #08243c;
+    }
+  }
+}
+
+main.main-user-content {
+  grid-area: user-content;
+}
+
+footer.footer-user {
+  grid-area: user-footer;
+  background-color: #3c4560;
+  border-top: 3px solid #787db1;
+  padding: 10px;
+}
+
+.main-form-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  .main-form {
+    width: 300px;
+    padding: 20px;
+    background-color: #516294;
+    border: 1px solid #787db1;
+    display: grid;
+    gap: 10px;
+    border-radius: 10px;
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      outline: none;
+      border: 1px solid #08243c;
+      border-radius: 5px;
+    }
+
+    button {
+      background: linear-gradient(#ffffff, #cccccc);
+      transition: 0.3s;
+
+      &:active {
+        background: linear-gradient(#cccccc, #ffffff);
+      }
+    }
+  }
+}
+
+.notice-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notice {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
