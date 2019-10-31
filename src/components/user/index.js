@@ -6,20 +6,20 @@ import Header from '../Header'
 import Navigation from './Navigation'
 import Footer from './Footer'
 
-import Home from './Home'
+import Feed from './Feed'
 import Profile from './Profile'
 
-export default ({ passed: { setSession } }) => {
+export default ({ passed }) => {
   return (
     <main className="main-userarea">
       <Header area='header' />
-      <Navigation passed={{ setSession }} />
+      <Navigation passed={passed} />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Feed />
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile passed={passed} />
         </Route>
       </Switch>
       <Footer />

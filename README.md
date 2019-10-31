@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# website "da Bomb"
+```
+This is a simple "guests list" website. It does not use a database but rather just localStorage to store everything /user accounts, posts etc./
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import uuid from 'uuidv4'
 
 // Helpers
 import { getUsers, userExists } from '../../Helpers'
 
-export default ({ passed: { notices, setNotice } }) => {
+export default ({ passed: { setNotice } }) => {
   const [form, setForm] = useState({
     username: '',
     password: '',
     email: ''
   });
+
+  console.log('users', getUsers());
 
   const onSubmit = e => {
     e.preventDefault();
@@ -18,12 +21,19 @@ export default ({ passed: { notices, setNotice } }) => {
       // TODO: bcrypt the password
 
       const users = getUsers();
-      users.push(form);
+      users.push({ ...form, id: uuid() });
 
       localStorage.setItem('daBomb_users', JSON.stringify(users));
-      setNotice([...notices, { message: `You registered successfully, you may now login ${form.username}`, type: 'success' }]);
+
+      setNotice({
+        title: `You registered successfully, you may now login ${form.username}`,
+        type: 'success'
+      })
     } else {
-      setNotice([...notices, { message: 'This username is already in use', type: 'error' }]);
+      setNotice({
+        title: 'This username or email is already in use',
+        type: 'error'
+      })
     }
   }
 

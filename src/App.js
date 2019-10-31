@@ -10,8 +10,8 @@ import Notice from './components/Notice';
 import './style/App.scss';
 
 export default () => {
-  const [session, setSession] = useState(null);
-  const [notices, setNotice] = useState([]);
+  const [session, setSession] = useState({ username: null });
+  const [notice, setNotice] = useState(null);
 
   useEffect(() => {
     const storageSession = localStorage.getItem('daBomb_session');
@@ -22,8 +22,8 @@ export default () => {
 
   return (
     <Router>
-      {session ? <UserArea passed={{ setSession }} /> : <Home passed={{ notices, setNotice, setSession }} />}
-      <div className="notice-list">{notices.length > 0 && <Notice notice={notices} setNotice={setNotice} />}</div>
+      {session.username ? <UserArea passed={{ notice, setNotice, session, setSession }} /> : <Home passed={{ notice, setNotice, setSession }} />}
+      {notice && <Notice passed={{ notice, setNotice }} />}
     </Router>
   );
 }

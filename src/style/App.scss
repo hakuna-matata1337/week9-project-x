@@ -17,12 +17,30 @@ body {
 
 a {
   all: unset;
-  color: #ffffff;
+  color: #cfd7de;
   cursor: pointer;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #ffffff;
+}
+
+input, button, textarea {
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #08243c;
+  border-radius: 5px;
+}
+
+button {
+  background: linear-gradient(#ffffff, #cccccc);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:active {
+    background: linear-gradient(#cccccc, #ffffff);
+  }
 }
 
 main.main-welcome {
@@ -53,15 +71,16 @@ header.header {
 nav.nav-user {
   grid-area: user-nav;
   background-color: #3c4560;
-  border-right: 3px solid #787db1;
+  border-right: 3px solid #484c81;
 
   a {
     display: block;
-    margin: 5px;
-    padding: 5px;
+    margin: 6px;
+    padding: 5px 8px;
+    border-radius: 10px;
 
     &:hover {
-      background: #08243c;
+      background-color: #122d45;
     }
   }
 }
@@ -90,35 +109,14 @@ footer.footer-user {
     display: grid;
     gap: 10px;
     border-radius: 10px;
-
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      outline: none;
-      border: 1px solid #08243c;
-      border-radius: 5px;
-    }
-
-    button {
-      background: linear-gradient(#ffffff, #cccccc);
-      transition: 0.3s;
-
-      &:active {
-        background: linear-gradient(#cccccc, #ffffff);
-      }
-    }
   }
 }
 
-.notice-list {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .notice {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   padding: 15px;
-  margin: 10px;
   border-radius: 10px;
   font-size: 16px;
 }
@@ -133,4 +131,59 @@ footer.footer-user {
   color: #155724;
   background-color: #d4edda;
   border: 1px solid #c3e6cb;
+}
+
+// Public Feed
+
+.feed-container {
+  width: 80%;
+  padding: 20px;
+  margin: 0 auto;
+
+  .feed-post-form {
+    width: 400px;
+    display: grid;
+    gap: 10px;
+    margin: auto;
+  }
+
+  .feed-posts {
+    width: 100%;
+    background-color: #213749;
+    padding: 1px;
+    margin-top: 20px;
+
+    .main-post {
+      margin: 15px;
+      background-color: #516294;
+      padding: 10px;
+
+      .title {
+        font-size: 24px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #3c4560;
+
+        .delete {
+          float: right;
+          padding: 5px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        }
+      }
+
+      .content {
+        font-size: 16px;
+        border-bottom: 1px solid #3c4560;
+        padding: 15px 0;
+      }
+
+      .info {
+        padding-top: 5px;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 200;
+      }
+    }
+  }
 }
