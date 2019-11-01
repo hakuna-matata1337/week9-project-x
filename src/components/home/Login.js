@@ -42,7 +42,7 @@ export default ({ passed: { setNotice, setSession } }) => {
     <div className="main-form-container">
       <form className="main-form" onSubmit={e => onSubmit(e)}>
         <div style={{ textAlign: 'center', fontSize: 24 }}>Login</div>
-        <input type="text" placeholder="Username" value={login.username} onChange={e => onChange(e)} name="username" pattern="[a-zA-Z0-9]{4,10}" required />
+        <input type="text" placeholder="Username" value={login.username} onChange={e => onChange(e)} name="username" pattern="[a-zA-Z0-9]{2,10}" required />
         <input type="password" placeholder="Password" value={login.password} onChange={e => onChange(e)} name="password" pattern="[a-zA-Z0-9]{4,10}" required />
         <button>Submit</button>
         <Link to="/register" style={{ textAlign: 'center' }}>Don't have an account yet?</Link>

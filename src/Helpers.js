@@ -69,8 +69,14 @@ const getPosts = () => {
 
 const createPost = post => {
   const posts = getPosts();
-  posts.push(post);
+  posts.unshift(post);
   localStorage.setItem('daBomb_posts', JSON.stringify(posts));
+}
+
+const deletePost = id => {
+  const posts = getPosts();
+  const filteredPosts = posts.filter(post => post.id !== id);
+  localStorage.setItem('daBomb_posts', JSON.stringify(filteredPosts));
 }
 
 export {
@@ -81,5 +87,6 @@ export {
   changeUser,
   getPosts,
   createPost,
+  deletePost,
   getSession
 }

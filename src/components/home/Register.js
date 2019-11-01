@@ -18,10 +18,15 @@ export default ({ passed: { setNotice } }) => {
     e.preventDefault();
 
     if (!userExists(form)) {
-      // TODO: bcrypt the password
-
+      const date = new Date();
       const users = getUsers();
-      users.push({ ...form, id: uuid() });
+
+      users.push({
+        ...form,
+        date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()} @ ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+        time: Date.now(),
+        id: uuid()
+      });
 
       localStorage.setItem('daBomb_users', JSON.stringify(users));
 
@@ -43,7 +48,7 @@ export default ({ passed: { setNotice } }) => {
     <div className="main-form-container">
       <form className="main-form" onSubmit={e => onSubmit(e)}>
         <div style={{ textAlign: 'center', fontSize: 24 }}>Register</div>
-        <input type="text" placeholder="Username" value={form.username} onChange={e => onChange(e)} name="username" pattern="[a-zA-Z0-9]{4,10}" required />
+        <input type="text" placeholder="Username" value={form.username} onChange={e => onChange(e)} name="username" pattern="[a-zA-Z0-9]{2,10}" required />
         <input type="password" placeholder="Password" value={form.password} onChange={e => onChange(e)} name="password" pattern="[a-zA-Z0-9]{4,10}" required />
         <input type="email" placeholder="E-Mail" value={form.email} onChange={e => onChange(e)} name="email" required />
         <button>Submit</button>

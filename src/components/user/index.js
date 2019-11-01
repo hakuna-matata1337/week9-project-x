@@ -8,6 +8,7 @@ import Footer from './Footer'
 
 import Feed from './Feed'
 import Profile from './Profile'
+import Users from './Users'
 
 export default ({ passed }) => {
   return (
@@ -20,6 +21,9 @@ export default ({ passed }) => {
         </Route>
         <Route path="/profile">
           <Profile passed={passed} />
+        </Route>
+        <Route path="/users">
+          <Users />
         </Route>
       </Switch>
       <Footer />

@@ -17,7 +17,7 @@ export default () => {
     <div className="feed-container">
       <NewPost passed={{ posts, setPosts }} />
       <div className="feed-posts">
-        {posts.map(post => <Post key={post.id} passed={{ post }} />)}
+        {posts.map(post => <Post key={post.id} passed={{ post, posts, setPosts }} />)}
       </div>
     </div>
   )

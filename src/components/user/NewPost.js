@@ -24,7 +24,10 @@ export default ({ passed: { posts, setPosts } }) => {
       author: session.username
     }
 
-    setPosts([...posts, newPost]);
+    const newPosts = [...posts];
+    newPosts.unshift(newPost);
+
+    setPosts(newPosts);
     createPost(newPost);
     setForm({ title: '', content: '' })
   }
